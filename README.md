@@ -26,7 +26,7 @@ conda activate carlapy
 pip3 install -r requirements.txt
 ```
 # Run simulator 
-- Run on local:
+- Run locally:
 ```bash
 cd {PATH TO CARLA simulator}
 ```
