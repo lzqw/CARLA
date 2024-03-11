@@ -29,3 +29,5 @@ networkx
 carla==0.9.14
 networkx
 distro
+open3d
+
