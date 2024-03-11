@@ -25,13 +25,13 @@ conda activate carlapy
 ```bash
 pip3 install -r requirements.txt
 ```
-# Run simulator (quality:Low or Epic)
+# Run simulator 
 - Run on local:
 ```bash
 cd {PATH TO CARLA simulator}
 ```
 ```bash
-./CarlaUE4.sh -quality-level=Low -world-port=2000
+./CarlaUE4.sh -quality-level=Low -world-port=2000 #quality:Low or Epic
 ```
 ```bash
 cd {PATH TO CODE}
