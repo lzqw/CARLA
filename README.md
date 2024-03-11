@@ -6,6 +6,8 @@ git clone https://github.com/lzqw/CARLA.git
 cd CARLA
 ```
 - Download CARLA simulator (若使用服务器则不需要本地装carla)
+- 链接: https://pan.baidu.com/s/1f0NZF5mLkmklIPJp4vry9Q 提取码: cqqp 
+--来自百度网盘超级会员v6的分享
 ```bash
 wget https://leaderboard-public-contents.s3.us-west-2.amazonaws.com/CARLA_Leaderboard_2.0.tar.xz
 ```
