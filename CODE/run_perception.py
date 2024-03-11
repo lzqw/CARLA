@@ -356,8 +356,8 @@ def main():
                         )
     parser.add_argument('--host',
                         # default='172.26.149.156',# 1080ti
-                        default='172.21.201.222',  # 4080super
-                        # default='localhost',
+                        # default='172.21.201.222',  # 4080super
+                        default='localhost',
                         help='IP of the host server (default: localhost)')
     parser.add_argument('--port', default=2000, type=int,
                         help='TCP port to listen to (default: 2000)')
