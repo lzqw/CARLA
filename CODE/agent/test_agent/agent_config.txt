@@ -1,5 +1,6 @@
 mode: log                      # Either 'log' or 'playback'
 file: test.json                     # path to the file with the controls
+auto: True
 
 
 This is the configuration file of the human agent. This agent incorporates two modes.

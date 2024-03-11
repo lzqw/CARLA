@@ -31,8 +31,21 @@ import open3d as o3d
 from leaderboard.autoagents.autonomous_agent import AutonomousAgent, Track
 from srunner.scenariomanager.carla_data_provider import *
 
+from agents.navigation.basic_agent import BasicAgent
+from agents.tools.misc import get_speed
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 def get_entry_point():
-    return 'HumanAgent'
+    return 'TestAgent'
 
 class HumanInterface(object):
 
@@ -119,7 +132,7 @@ class HumanInterface(object):
         pygame.quit()
 
 
-class HumanAgent(AutonomousAgent):
+class TestAgent(AutonomousAgent):
 
     """
     Human agent to control the ego vehicle via keyboard
@@ -133,7 +146,7 @@ class HumanAgent(AutonomousAgent):
         Setup the agent parameters
         """
         self.track = Track.MAP
-
+        self._agent = None
         self.agent_engaged = False
         self.camera_width = 1280
         self.camera_height = 720
@@ -146,6 +159,7 @@ class HumanAgent(AutonomousAgent):
         self._speedometer=True
         self._opendrive_map=True
         self._gnss=True
+
 
         self._hic = HumanInterface(
             self.camera_width,
@@ -160,7 +174,7 @@ class HumanAgent(AutonomousAgent):
             self._imu,
             self._gnss
         )
-        self._controller = KeyboardControl(path_to_conf_file)
+        self._controller= KeyboardControl(path_to_conf_file)
         self._prev_timestamp = 0
 
         self._clock = pygame.time.Clock()
@@ -278,10 +292,33 @@ class HumanAgent(AutonomousAgent):
         self.agent_engaged = True
         self._hic.run_interface(input_data)
 
-        control = self._controller.parse_events(timestamp - self._prev_timestamp)
+        if self._controller.auto:
+            control = carla.VehicleControl(steer=0, throttle=0, brake=1)
+            if not self._agent:
+                self.init_set_routes()
+                return control
+            control = self._agent.run_step()
+        else:
+            control = self._controller.parse_events(timestamp - self._prev_timestamp)
+
         self._prev_timestamp = timestamp
 
         return control
+
+    def init_set_routes(self):
+        self._vehicle = CarlaDataProvider.get_hero_actor()
+        self._world = self._vehicle.get_world()
+        self._map = self._world.get_map()
+        self._agent = BasicAgent(self._vehicle)
+        plan = []
+        prev_wp = None
+        for point_world_coord in self._global_plan_world_coord:
+            wp = CarlaDataProvider.get_map().get_waypoint(point_world_coord[0].location)
+            if prev_wp:
+                plan.extend(self._agent.trace_route(prev_wp, wp))
+            prev_wp = wp
+
+        self._agent.set_global_plan(plan)
 
     def destroy(self):
         """
@@ -311,6 +348,8 @@ class KeyboardControl(object):
                 lines = f.read().split("\n")
                 self._mode = lines[0].split(" ")[1]
                 self._endpoint = lines[1].split(" ")[1]
+                self.auto=lines[2].split(" ")[1]
+                print(f"Mode: {self._mode}, Endpoint: {self._endpoint}, Auto: {self.auto}")
 
             # Get the needed vars
             if self._mode == "log":
@@ -329,6 +368,7 @@ class KeyboardControl(object):
         else:
             self._mode = "normal"
             self._endpoint = None
+            self._auto=False
 
     def _json_to_control(self):
 

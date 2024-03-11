@@ -346,9 +346,9 @@ def main():
 
     # general parameters
     parser = argparse.ArgumentParser(description=description, formatter_class=RawTextHelpFormatter)
-    parser.add_argument('--test-type',
-                        default='test_agent',
-                        choices=['test_agent', 'planning', 'prediction', 'auto_agent'])
+    # parser.add_argument('--test-type',
+    #                     default='test_agent',
+    #                     choices=['test_agent', 'planning', 'prediction', 'auto_agent'])
     # agent-related options
     parser.add_argument("-a", "--agent", type=str,
                         help="Path to Agent's py file to evaluate",
@@ -356,8 +356,8 @@ def main():
                         )
     parser.add_argument('--host',
                         # default='172.26.149.156',# 1080ti
-                        # default='172.21.201.222',  # 4080super
-                        default='localhost',
+                        default='172.21.201.222',  # 4080super
+                        # default='localhost',
                         help='IP of the host server (default: localhost)')
     parser.add_argument('--port', default=2000, type=int,
                         help='TCP port to listen to (default: 2000)')

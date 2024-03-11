@@ -9,7 +9,16 @@
     },
     "entry_status": "Started",
     "eligible": false,
-    "sensors": [],
+    "sensors": [
+        "carla_camera",
+        "carla_lidar",
+        "carla_camera",
+        "carla_camera",
+        "carla_opendrive_map",
+        "carla_imu",
+        "carla_gnss",
+        "carla_speedometer"
+    ],
     "values": [],
     "labels": []
 }
