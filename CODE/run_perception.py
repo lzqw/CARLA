@@ -9,8 +9,6 @@ import pkg_resources
 import carla
 import signal
 
-
-
 # set the path to leaderboard and scenario_runner
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'leaderboard'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'scenario_runner'))
@@ -32,14 +30,15 @@ from srunner.scenariomanager.timer import GameTime
 from srunner.scenariomanager.carla_data_provider import *
 
 sensors_to_icons = {
-    'sensor.camera.rgb':        'carla_camera',
-    'sensor.lidar.ray_cast':    'carla_lidar',
-    'sensor.other.radar':       'carla_radar',
-    'sensor.other.gnss':        'carla_gnss',
-    'sensor.other.imu':         'carla_imu',
-    'sensor.opendrive_map':     'carla_opendrive_map',
-    'sensor.speedometer':       'carla_speedometer'
+    'sensor.camera.rgb': 'carla_camera',
+    'sensor.lidar.ray_cast': 'carla_lidar',
+    'sensor.other.radar': 'carla_radar',
+    'sensor.other.gnss': 'carla_gnss',
+    'sensor.other.imu': 'carla_imu',
+    'sensor.opendrive_map': 'carla_opendrive_map',
+    'sensor.speedometer': 'carla_speedometer'
 }
+
 
 class PerceptionEvaluator(object):
     """
@@ -67,7 +66,7 @@ class PerceptionEvaluator(object):
 
         self.statistics_manager = statistics_manager
 
-        #Setup the simulation
+        # Setup the simulation
         self.client, self.client_timeout, self.traffic_manager = self._setup_simulation(args)
 
         # Check carla version
@@ -82,12 +81,12 @@ class PerceptionEvaluator(object):
         sys.path.insert(0, os.path.dirname(args.agent))
         self.module_agent = importlib.import_module(module_name)
 
-        #Create the ScenarioManager
+        # Create the ScenarioManager
         self.manager = ScenarioManager(args.timeout, self.statistics_manager, args.debug)
         self._start_time = GameTime.get_time()
         self._end_time = None
 
-        #Prepare the agent timer
+        # Prepare the agent timer
         self._agent_watchdog = None
         signal.signal(signal.SIGINT, self._signal_handler)
 
@@ -128,7 +127,7 @@ class PerceptionEvaluator(object):
 
         return client, client_timeout, traffic_manager
 
-    def run(self,args):
+    def run(self, args):
         """
         Run the test_agent test
         """
@@ -171,7 +170,7 @@ class PerceptionEvaluator(object):
             raise Exception("The CARLA server uses the wrong map!"
                             " This scenario requires the use of map {}".format(town))
 
-    def _load_and_run_scenario(self,args,config):
+    def _load_and_run_scenario(self, args, config):
         """
         Load and run the scenario given by config.
 
@@ -181,7 +180,8 @@ class PerceptionEvaluator(object):
         crash_message = ""
         entry_status = "Started"
 
-        print("\n\033[1m========= Preparing {} (repetition {}) =========\033[0m".format(config.name, config.repetition_index))
+        print("\n\033[1m========= Preparing {} (repetition {}) =========\033[0m".format(config.name,
+                                                                                        config.repetition_index))
 
         # Prepare the statistics of the route
         route_name = f"{config.name}_rep{config.repetition_index}"
@@ -214,7 +214,7 @@ class PerceptionEvaluator(object):
             agent_class_obj = getattr(self.module_agent, agent_class_name)
 
             self.agent_instance = agent_class_obj(args.host, args.port, args.debug)
-            #print(self.route_scenario.gps_route)
+            # print(self.route_scenario.gps_route)
             self.agent_instance.set_global_plan(self.route_scenario.gps_route, self.route_scenario.route)
             self.agent_instance.setup(args.agent_config)
 
@@ -340,6 +340,7 @@ class PerceptionEvaluator(object):
             sensor.stop()
             sensor.destroy()
 
+
 def main():
     description = "CARLA AD Leaderboard Evaluation: evaluate your Agent in CARLA scenarios\n"
 
@@ -347,7 +348,7 @@ def main():
     parser = argparse.ArgumentParser(description=description, formatter_class=RawTextHelpFormatter)
     parser.add_argument('--test-type',
                         default='test_agent',
-                        choices=['test_agent','planning','prediction'])
+                        choices=['test_agent', 'planning', 'prediction', 'auto_agent'])
     # agent-related options
     parser.add_argument("-a", "--agent", type=str,
                         help="Path to Agent's py file to evaluate",
@@ -355,6 +356,7 @@ def main():
                         )
     parser.add_argument('--host',
                         # default='172.26.149.156',# 1080ti
+                        # default='172.21.201.222',  # 4080super
                         default='localhost',
                         help='IP of the host server (default: localhost)')
     parser.add_argument('--port', default=2000, type=int,
@@ -393,10 +395,10 @@ def main():
                         help="Path t checkpoint used for saving live results")
 
     args = parser.parse_args()
-    args.routes= os.path.join(os.path.dirname(__file__),'..','leaderboard/data/'+args.routes)
-    args.agent_config= os.path.join(os.path.dirname(__file__),'agent',args.agent,'agent_config.txt')
-    args.agent= os.path.join(os.path.dirname(__file__),'agent',args.agent,'agent.py')
-    args.checkpoint= os.path.join(os.path.dirname(__file__),'..','leaderboard',args.checkpoint)
+    args.routes = os.path.join(os.path.dirname(__file__), '..', 'leaderboard/data/' + args.routes)
+    args.agent_config = os.path.join(os.path.dirname(__file__), 'agent', args.agent, 'agent_config.txt')
+    args.agent = os.path.join(os.path.dirname(__file__), 'agent', args.agent, 'agent.py')
+    args.checkpoint = os.path.join(os.path.dirname(__file__), '..', 'leaderboard', args.checkpoint)
 
     """
     Prepares the simulation by getting the client, and setting up the world and traffic manager settings
@@ -404,8 +406,9 @@ def main():
 
     statistics_manager = StatisticsManager(args.checkpoint, args.debug_checkpoint)
 
-    runner=PerceptionEvaluator(args, statistics_manager)
+    runner = PerceptionEvaluator(args, statistics_manager)
     runner.run(args)
+
 
 if __name__ == "__main__":
     main()
