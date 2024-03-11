@@ -29,4 +29,3 @@ networkx
 carla==0.9.14
 networkx
 distro
-Shapely==1.6.4.post2
