@@ -1,0 +1,15 @@
+{
+    "records": [
+        {
+            "control": {
+                "brake": 0.0,
+                "gear": 0,
+                "hand_brake": false,
+                "manual_gear_shift": false,
+                "reverse": false,
+                "steer": 0.0,
+                "throttle": 0.0
+            }
+        }
+    ]
+}
