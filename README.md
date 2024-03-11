@@ -52,7 +52,7 @@ cd {PATH TO CODE} #local
 ```bash
 python run_perception.py --host {IP OF SERVER} #local
 ```
-
+- /CODE/agent/test_agent/agent_config.txt 中设置手动或自动 
 
 
 
