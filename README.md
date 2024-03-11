@@ -9,7 +9,6 @@ cd CARLA
 ```bash
 wget https://leaderboard-public-contents.s3.us-west-2.amazonaws.com/CARLA_Leaderboard_2.0.tar.xz
 ```
-- Unzip in the same folder with CARLA
 ```bash
 tar -xf CARLA_Leaderboard_2.0.tar.xz
 ```
@@ -24,4 +23,6 @@ conda activate carlapy
 ```bash
 pip3 install -r requirements.txt
 ```
+
+
 
