@@ -26,12 +26,33 @@ conda activate carlapy
 pip3 install -r requirements.txt
 ```
 # Run simulator (quality:Low or Epic)
+- Run on local:
 ```bash
 cd {PATH TO CARLA simulator}
 ```
 ```bash
 ./CarlaUE4.sh -quality-level=Low -world-port=2000
 ```
-git
+```bash
+cd {PATH TO CODE}
+```
+```bash
+python run_perception.py --host 127.0.0.1
+```
+- Run on server:
+```bash
+cd /opt/CARLA_Leaderboard_20 #server
+```
+```bash
+./CarlaUE4.sh -carla-rpc-port=2000 -RenderOffScreen -graphicsadaper=1 #server
+```
+```bash
+cd {PATH TO CODE} #local
+```
+```bash
+python run_perception.py --host {IP OF SERVER} #local
+```
+
+
 
 
