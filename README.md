@@ -54,5 +54,6 @@ python run_perception.py --host {IP OF SERVER} #local
 ```
 - /CODE/agent/test_agent/agent_config.txt 中设置手动或自动 
 
+- 在/CODE/agent/test_agent/agent.py中修改程序，run_step函数可获取周围物体的bounding box信息，并最终给出控制量。
 
 
