@@ -1,4 +1,3 @@
-#TODO How to get the true bounding box of the vehicle in the simulation?
 
 import importlib
 import os

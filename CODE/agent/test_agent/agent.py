@@ -32,7 +32,7 @@ from leaderboard.autoagents.autonomous_agent import AutonomousAgent, Track
 from srunner.scenariomanager.carla_data_provider import *
 
 from agents.navigation.basic_agent import BasicAgent
-from agents.tools.misc import get_speed
+
 
 class bcolors:
     HEADER = '\033[95m'
@@ -44,17 +44,19 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+
+
 def get_entry_point():
     return 'TestAgent'
 
-class HumanInterface(object):
 
+class HumanInterface(object):
     """
     Class to control a vehicle manually for debugging purposes
     """
 
     def __init__(self, width, height, side_scale, left_mirror=False, right_mirror=False,
-                 lidar=False,font_radar=False,opendrive_map=False,speedometer=False,imu=False,gnss=False):
+                 lidar=False, font_radar=False, opendrive_map=False, speedometer=False, imu=False, gnss=False):
 
         """
         Args:
@@ -75,19 +77,17 @@ class HumanInterface(object):
 
         self._left_mirror = left_mirror
         self._right_mirror = right_mirror
-        self._lidar=lidar
-        self._imu=imu
-        self._speedometer=speedometer
-        self._opendrive_map=opendrive_map
-        self._gnss=gnss
-
+        self._lidar = lidar
+        self._imu = imu
+        self._speedometer = speedometer
+        self._opendrive_map = opendrive_map
+        self._gnss = gnss
 
         pygame.init()
         pygame.font.init()
         self._clock = pygame.time.Clock()
         self._display = pygame.display.set_mode((self._width, self._height), pygame.HWSURFACE | pygame.DOUBLEBUF)
         pygame.display.set_caption("Human Agent")
-
 
     def run_interface(self, input_data):
         """
@@ -112,7 +112,7 @@ class HumanInterface(object):
 
         # Add the lidar
         if self._lidar:
-            points= input_data['LIDAR'][1]
+            points = input_data['LIDAR'][1]
             lidar_data = np.array(points[:, :2])
 
         # Display image
@@ -133,9 +133,8 @@ class HumanInterface(object):
 
 
 class TestAgent(AutonomousAgent):
-
     """
-    Human agent to control the ego vehicle via keyboard
+    Human agent to control the ego vehicle via keyboard or auto-control
     """
 
     current_control = None
@@ -151,15 +150,16 @@ class TestAgent(AutonomousAgent):
         self.camera_width = 1280
         self.camera_height = 720
         self._side_scale = 0.3
+
+        # 设置传感器
         self._font_radar = True
         self._left_mirror = True
         self._right_mirror = True
-        self._lidar= True
-        self._imu=True
-        self._speedometer=True
-        self._opendrive_map=True
-        self._gnss=True
-
+        self._lidar = True
+        self._imu = True
+        self._speedometer = True
+        self._opendrive_map = True
+        self._gnss = True
 
         self._hic = HumanInterface(
             self.camera_width,
@@ -174,7 +174,7 @@ class TestAgent(AutonomousAgent):
             self._imu,
             self._gnss
         )
-        self._controller= KeyboardControl(path_to_conf_file)
+        self._controller = KeyboardControl(path_to_conf_file)
         self._prev_timestamp = 0
 
         self._clock = pygame.time.Clock()
@@ -185,16 +185,7 @@ class TestAgent(AutonomousAgent):
 
         :return: a list containing the required sensors in the following format:
 
-        [
-            {'type': 'sensor.camera.rgb', 'x': 0.7, 'y': -0.4, 'z': 1.60, 'roll': 0.0, 'pitch': 0.0, 'yaw': 0.0,
-                      'width': 300, 'height': 200, 'fov': 100, 'id': 'Left'},
-
-            {'type': 'sensor.camera.rgb', 'x': 0.7, 'y': 0.4, 'z': 1.60, 'roll': 0.0, 'pitch': 0.0, 'yaw': 0.0,
-                      'width': 300, 'height': 200, 'fov': 100, 'id': 'Right'},
-
-            {'type': 'sensor.lidar.ray_cast', 'x': 0.7, 'y': 0.0, 'z': 1.60, 'yaw': 0.0, 'pitch': 0.0, 'roll': 0.0,
-             'id': 'LIDAR'}
-        ]
+        可选传感器类型和要求见/leaderboard/leaderboard/autoagents/agent_wrapper.py
         """
 
         sensors = [
@@ -204,7 +195,8 @@ class TestAgent(AutonomousAgent):
 
         if self._lidar:
             sensors.append(
-                {'type': 'sensor.lidar.ray_cast', 'x': 0.7, 'y': 0.0, 'z': 1.60, 'yaw': 0.0, 'pitch': 0.0, 'roll': 0.0,'range':200,
+                {'type': 'sensor.lidar.ray_cast', 'x': 0.7, 'y': 0.0, 'z': 1.60, 'yaw': 0.0, 'pitch': 0.0, 'roll': 0.0,
+                 'range': 200,
                  'id': 'LIDAR'}
             )
 
@@ -222,36 +214,37 @@ class TestAgent(AutonomousAgent):
 
         if self._opendrive_map:
             sensors.append(
-                {'type': 'sensor.opendrive_map', 'id': 'opendrive_map','reading_frequency':1e-6}
+                {'type': 'sensor.opendrive_map', 'id': 'opendrive_map', 'reading_frequency': 1e-6}
             )
 
         if self._imu:
             sensors.append(
-                {'type': 'sensor.other.imu', 'id': 'imu','x': 0.0, 'y': 0.0, 'z': 0.0,
-                    'roll': 0.0, 'pitch': 0.0, 'yaw': 0.0,'sensor_tick': 0.05,}
+                {'type': 'sensor.other.imu', 'id': 'imu', 'x': 0.0, 'y': 0.0, 'z': 0.0,
+                 'roll': 0.0, 'pitch': 0.0, 'yaw': 0.0, 'sensor_tick': 0.05, }
             )
 
         if self._gnss:
             sensors.append(
                 {
-                    'type': 'sensor.other.gnss','x': 0.0, 'y': 0.0, 'z': 0.0,
-                    'roll': 0.0, 'pitch': 0.0, 'yaw': 0.0,'sensor_tick': 0.01,'id': 'gps'
+                    'type': 'sensor.other.gnss', 'x': 0.0, 'y': 0.0, 'z': 0.0,
+                    'roll': 0.0, 'pitch': 0.0, 'yaw': 0.0, 'sensor_tick': 0.01, 'id': 'gps'
                 }
             )
 
         if self._speedometer:
             sensors.append(
                 {
-                    'type': 'sensor.speedometer','reading_frequency': 20,'id': 'speed'
+                    'type': 'sensor.speedometer', 'reading_frequency': 20, 'id': 'speed'
                 }
             )
 
         return sensors
 
-    def get_bounding_box(self,object_label_list):
+    def get_bounding_box(self, object_label_list):
+        # 获取附近的物体的bounding box
         nearby_bboxes = {}
         for object_label in object_label_list:
-            nearby=[]
+            nearby = []
             if object_label == "Car":
                 bounding_box_set = CarlaDataProvider.get_world().get_level_bbs(carla.CityObjectLabel.Car)
             elif object_label == "TrafficLight":
@@ -275,11 +268,11 @@ class TestAgent(AutonomousAgent):
             elif object_label == "Trailer":
                 bounding_box_set = CarlaDataProvider.get_world().get_level_bbs(carla.CityObjectLabel.Trailer)
             else:
-                raise Exception("There is no such object label:",object_label)
+                raise Exception("There is no such object label:", object_label)
             for bbox in bounding_box_set:
                 if bbox.location.distance(CarlaDataProvider.get_ego().get_transform().location) < 50:
                     nearby.append(bbox)
-            nearby_bboxes[object_label]=nearby
+            nearby_bboxes[object_label] = nearby
         return nearby_bboxes
 
     def run_step(self, input_data, timestamp):
@@ -287,18 +280,25 @@ class TestAgent(AutonomousAgent):
         """
         Execute one step of navigation.
         """
-        nearby_bboxes = self.get_bounding_box(["Car","TrafficLight","TrafficSign","Vegetation","Pedestrian","Bicycle","Motorcycle","Truck","Bus"])
+        nearby_bboxes = self.get_bounding_box(
+            ["Car", "TrafficLight", "TrafficSign", "Vegetation", "Pedestrian", "Bicycle", "Motorcycle", "Truck", "Bus"])
+
         self._clock.tick_busy_loop(20)
         self.agent_engaged = True
         self._hic.run_interface(input_data)
 
         if self._controller.auto:
+            # 获取CARLA内部的车辆自动控制
             control = carla.VehicleControl(steer=0, throttle=0, brake=1)
             if not self._agent:
+                # 初始化CARLA内部的车辆自动控制，设置全局路径
                 self.init_set_routes()
                 return control
-            control = self._agent.run_step()
+            else:
+                # 获取CARLA内部的车辆自动控制
+                control = self._agent.run_step()
         else:
+            # 键盘控制
             control = self._controller.parse_events(timestamp - self._prev_timestamp)
 
         self._prev_timestamp = timestamp
@@ -328,7 +328,6 @@ class TestAgent(AutonomousAgent):
 
 
 class KeyboardControl(object):
-
     """
     Keyboard control for the human agent
     """
@@ -348,7 +347,7 @@ class KeyboardControl(object):
                 lines = f.read().split("\n")
                 self._mode = lines[0].split(" ")[1]
                 self._endpoint = lines[1].split(" ")[1]
-                self.auto=lines[2].split(" ")[1]
+                self.auto = lines[2].split(" ")[1]
                 print(f"Mode: {self._mode}, Endpoint: {self._endpoint}, Auto: {self.auto}")
 
             # Get the needed vars
@@ -368,7 +367,7 @@ class KeyboardControl(object):
         else:
             self._mode = "normal"
             self._endpoint = None
-            self._auto=False
+            self._auto = False
 
     def _json_to_control(self):
 
@@ -391,7 +390,7 @@ class KeyboardControl(object):
         if self._mode == "playback":
             self._parse_json_control()
         else:
-            self._parse_vehicle_keys(pygame.key.get_pressed(), timestamp*1000)
+            self._parse_vehicle_keys(pygame.key.get_pressed(), timestamp * 1000)
 
         # Record the control
         if self._mode == "log":

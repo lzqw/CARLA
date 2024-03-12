@@ -1,3 +1,4 @@
+# 导入所需的模块
 import importlib
 import os
 import sys
@@ -9,13 +10,14 @@ import pkg_resources
 import carla
 import signal
 
-# set the path to leaderboard and scenario_runner
+# 设置leaderboard和scenario_runner的路径
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'leaderboard'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'scenario_runner'))
 
-# set the path to carla python api
+# 设置carla python api的路径
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'PythonAPI', 'carla'))
 
+# 导入所需的类和函数
 from leaderboard.leaderboard_evaluator import LeaderboardEvaluator
 from leaderboard.autoagents.agent_wrapper import AgentError
 from leaderboard.autoagents.agent_wrapper import validate_sensor_configuration
@@ -29,6 +31,7 @@ from leaderboard.scenarios.scenario_manager import ScenarioManager
 from srunner.scenariomanager.timer import GameTime
 from srunner.scenariomanager.carla_data_provider import *
 
+# 定义传感器到图标的映射
 sensors_to_icons = {
     'sensor.camera.rgb': 'carla_camera',
     'sensor.lidar.ray_cast': 'carla_lidar',
@@ -39,12 +42,12 @@ sensors_to_icons = {
     'sensor.speedometer': 'carla_speedometer'
 }
 
-
+# 定义PerceptionEvaluator类
 class PerceptionEvaluator(object):
     """
     Runner for the test_agent evaluation.
     """
-    # Tunable parameters
+    # 可调参数
     client_timeout = 10.0  # in seconds
     frame_rate = 20.0  # in Hz
 
@@ -56,6 +59,7 @@ class PerceptionEvaluator(object):
             statistics_manager:
         Setup CARLA client and world,Setup ScenarioManager
         """
+        # 初始化变量
         self.world = None
         self.manager = None
         self.sensors = None
@@ -66,27 +70,27 @@ class PerceptionEvaluator(object):
 
         self.statistics_manager = statistics_manager
 
-        # Setup the simulation
+        # 设置模拟
         self.client, self.client_timeout, self.traffic_manager = self._setup_simulation(args)
 
-        # Check carla version
+        # 检查carla版本
         dist = pkg_resources.get_distribution("carla")
         if dist.version != 'leaderboard':
             if LooseVersion(dist.version) < LooseVersion('0.9.10'):
                 raise ImportError("CARLA version 0.9.10.1 or newer required. CARLA version found: {}".format(dist))
 
-        # Load the agent
+        # 加载代理
         module_name = os.path.basename(args.agent).split('.')[0]
         print('module_name:', module_name)
         sys.path.insert(0, os.path.dirname(args.agent))
         self.module_agent = importlib.import_module(module_name)
 
-        # Create the ScenarioManager
+        # 创建ScenarioManager
         self.manager = ScenarioManager(args.timeout, self.statistics_manager, args.debug)
         self._start_time = GameTime.get_time()
         self._end_time = None
 
-        # Prepare the agent timer
+        # 准备代理计时器
         self._agent_watchdog = None
         signal.signal(signal.SIGINT, self._signal_handler)
 
@@ -95,8 +99,8 @@ class PerceptionEvaluator(object):
 
     def _signal_handler(self, signum, frame):
         """
-        Terminate scenario ticking when receiving a signal interrupt.
-        Either the agent initialization watchdog is triggered, or the runtime one at scenario manager
+        当接收到中断信号时，终止场景的执行。
+        如果代理初始化的看门狗被触发，或者在场景管理器的运行时触发。
         """
         if self._agent_watchdog and not self._agent_watchdog.get_status():
             raise RuntimeError("Timeout: Agent took longer than {}s to setup".format(self.client_timeout))
@@ -105,7 +109,7 @@ class PerceptionEvaluator(object):
 
     def _setup_simulation(self, args):
         """
-        Prepares the simulation by getting the client, and setting up the world and traffic manager settings
+        通过获取客户端，并设置世界和交通管理器设置来准备模拟
         """
         client = carla.Client(args.host, args.port)
         if args.timeout:
@@ -129,7 +133,7 @@ class PerceptionEvaluator(object):
 
     def run(self, args):
         """
-        Run the test_agent test
+        运行test_agent测试
         """
         route_indexer = RouteIndexer(args.routes, args.repetitions, args.routes_subset)
 
@@ -145,7 +149,7 @@ class PerceptionEvaluator(object):
 
     def _load_and_wait_for_world(self, args, town):
         """
-        Load a new CARLA world without changing the settings and provide data to CarlaDataProvider
+        加载一个新的CARLA世界，不改变设置，并提供数据给CarlaDataProvider
         """
         self.world = self.client.load_world(town, reset_settings=False)
 
@@ -172,10 +176,8 @@ class PerceptionEvaluator(object):
 
     def _load_and_run_scenario(self, args, config):
         """
-        Load and run the scenario given by config.
-
-        Depending on what CODE fails, the simulation will either stop the route and
-        continue from the next one, or report a crash and stop.
+        加载并运行由config给出的场景。
+        根据CODE失败的情况，模拟将停止路线并从下一个开始，或者报告崩溃并停止。
         """
         crash_message = ""
         entry_status = "Started"
@@ -299,7 +301,7 @@ class PerceptionEvaluator(object):
 
     def _register_statistics(self, route_index, entry_status, crash_message=""):
         """
-        Computes and saves the route statistics
+        计算并保存路线统计信息
         """
         print("\033[1m> Registering the route statistics\033[0m")
         self.statistics_manager.save_entry_status(entry_status)
@@ -309,7 +311,7 @@ class PerceptionEvaluator(object):
 
     def _cleanup(self):
         """
-        Remove and destroy all actors
+        移除并销毁所有的演员
         """
         CarlaDataProvider.cleanup()
 
