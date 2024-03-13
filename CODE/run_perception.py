@@ -398,7 +398,12 @@ def main():
 
     args = parser.parse_args()
     args.routes = os.path.join(os.path.dirname(__file__), '..', 'leaderboard/data/' + args.routes)
-    args.agent_config = os.path.join(os.path.dirname(__file__), 'agent', args.agent, 'agent_config.txt')
+
+    if args.agent_config=='test_agent':
+        args.agent_config = os.path.join(os.path.dirname(__file__), 'agent', args.agent, 'agent_config.txt')
+    else:
+        args.agent_config = os.path.join(os.path.dirname(__file__), 'agent', args.agent, 'agent_config.yaml')
+
     args.agent = os.path.join(os.path.dirname(__file__), 'agent', args.agent, 'agent.py')
     args.checkpoint = os.path.join(os.path.dirname(__file__), '..', 'leaderboard', args.checkpoint)
 
