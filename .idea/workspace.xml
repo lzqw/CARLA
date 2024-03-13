@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bf67a14e-cdf4-4079-a874-946204677082" name="Changes" comment="添加注释">
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/agent_t.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/carla_multi_agent_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/actor_state/control.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/actor_state/route.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/actor_state/speed.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/actor_state/velocity.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/birdview/chauffeurnet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/birdview/maps/Town01.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/birdview/maps/Town02.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/birdview/maps/Town03.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/birdview/maps/Town04.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/birdview/maps/Town05.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/birdview/maps/Town06.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/camera/rgb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/navigation/gnss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/navigation/waypoint_plan.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/object_finder/ego.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/object_finder/pedestrian.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/object_finder/stop_sign.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/object_finder/traffic_light_new.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/object_finder/vehicle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/obs_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/obs_manager/obs_manager_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/criteria/blocked.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/criteria/collision.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/criteria/encounter_light.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/criteria/outside_route_lane.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/criteria/route_deviation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/criteria/run_red_light.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/criteria/run_stop_sign.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/navigation/global_route_planner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/navigation/map_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/navigation/route_manipulation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/common/task_vehicle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/ego_vehicle/ego_vehicle_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/ego_vehicle/reward/valeo_action.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/ego_vehicle/terminal/leaderboard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/ego_vehicle/terminal/leaderboard_dagger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/ego_vehicle/terminal/valeo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/ego_vehicle/terminal/valeo_no_det_px.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/scenario_actor/agents/basic_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/scenario_actor/agents/constant_speed_agent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/scenario_actor/agents/utils/controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/scenario_actor/agents/utils/local_planner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/scenario_actor/agents/utils/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/task_actor/scenario_actor/scenario_actor_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/zombie_vehicle/zombie_vehicle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/zombie_vehicle/zombie_vehicle_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/zombie_walker/zombie_walker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/core/zombie_walker/zombie_walker_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Navigation/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Navigation/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Navigation/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Navigation/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/OneCurve/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/OneCurve/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/OneCurve/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/OneCurve/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/OneCurve/Town02_old/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/OneCurve/Town02_old/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Straight/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Straight/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Straight/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Straight/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Straight/Town02_old/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/Straight/Town02_old/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town01_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town01_one_curve.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town01_straight.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town02_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town02_one_curve.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town02_one_curve_old.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town02_straight.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/cexp/original_description/Town02_straight_old.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Navigation/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Navigation/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Navigation/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Navigation/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/OneCurve/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/OneCurve/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/OneCurve/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/OneCurve/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Straight/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Straight/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Straight/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/Straight/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/original_description/Town01_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/original_description/Town01_one_curve.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/original_description/Town01_straight.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/original_description/Town02_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/original_description/Town02_one_curve.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/driving-benchmarks/original_description/Town02_straight.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Navigation/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Navigation/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Navigation/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Navigation/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/OneCurve/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/OneCurve/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/OneCurve/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/OneCurve/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Straight/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Straight/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Straight/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/Straight/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/original_description/full_Town01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/original_description/full_Town02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/original_description/straight_Town01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/original_description/straight_Town02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/original_description/turn_Town01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/CoRL2017/lbc/original_description/turn_Town02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town03/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town03/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town04/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town04/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town04_test/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town04_test/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town04_train/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town04_train/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town05/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town05/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town06/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/LeaderBoard/Town06/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/cexp/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/cexp/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/cexp/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/cexp/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/cexp/original_description/Town01_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/cexp/original_description/Town02_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/driving-benchmarks/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/driving-benchmarks/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/driving-benchmarks/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/driving-benchmarks/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/driving-benchmarks/original_description/Town01_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/driving-benchmarks/original_description/Town02_navigation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/lbc/Town01/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/lbc/Town01/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/lbc/Town02/actors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/lbc/Town02/routes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/lbc/original_description/nocrash_Town01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/scenario_descriptions/NoCrash/lbc/original_description/nocrash_Town02.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/suites/corl2017_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/suites/endless_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/suites/leaderboard_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/envs/suites/nocrash_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/birdview_map.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/config_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/dynamic_weather.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/expert_noiser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/gps_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/hazard_actor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/traffic_light.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/carla_gym/utils/transforms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/models/distributions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/models/ppo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/models/ppo_buffer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/models/ppo_policy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/models/torch_layers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/models/torch_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/utils/rl_birdview_wrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview/utils/wandb_callback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CODE/run_perception.py" beforeDir="false" afterPath="$PROJECT_DIR$/CODE/run_perception.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/leaderboard/results.json" beforeDir="false" afterPath="$PROJECT_DIR$/leaderboard/results.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2dXb8QDmH0Ld9Fl3KPG8tMas38L" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.agent.executor": "Run",
+    "Python.agent_t.executor": "Run",
+    "Python.run_perception.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/lzqw/PycharmProject/Carla-RL/CARLA/CODE/agent/rl_agent"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CODE/agent/rl_agent" />
+      <recent name="$PROJECT_DIR$/CODE/agent/rl_agent/rl_birdview" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.run_perception">
+    <configuration name="agent" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CARLA" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CODE/agent/rl_agent" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CODE/agent/rl_agent/agent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="agent_t" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CARLA" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CODE/agent/rl_agent" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CODE/agent/rl_agent/agent_t.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_perception" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CARLA" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CODE" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CODE/run_perception.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.run_perception" />
+        <item itemvalue="Python.agent" />
+        <item itemvalue="Python.agent_t" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bf67a14e-cdf4-4079-a874-946204677082" name="Changes" comment="" />
+      <created>1710157212169</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710157212169</updated>
+    </task>
+    <task id="LOCAL-00001" summary="auto agent">
+      <option name="closed" value="true" />
+      <created>1710163808805</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710163808805</updated>
+    </task>
+    <task id="LOCAL-00002" summary="auto agent">
+      <option name="closed" value="true" />
+      <created>1710165828872</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710165828872</updated>
+    </task>
+    <task id="LOCAL-00003" summary="添加注释">
+      <option name="closed" value="true" />
+      <created>1710212913179</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710212913179</updated>
+    </task>
+    <task id="LOCAL-00004" summary="添加注释">
+      <option name="closed" value="true" />
+      <created>1710213046661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710213046661</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="auto agent" />
+    <MESSAGE value="添加注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加注释" />
+  </component>
+</project>
