@@ -16,6 +16,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'scenario_runner')
 
 # 设置carla python api的路径
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'PythonAPI', 'carla'))
+os.environ['SCENARIO_RUNNER_ROOT']=os.path.join(os.path.dirname(__file__), '..', 'scenario_runner')
+
 
 # 导入所需的类和函数
 from leaderboard.leaderboard_evaluator import LeaderboardEvaluator
